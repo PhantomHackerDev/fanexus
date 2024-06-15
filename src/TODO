@@ -1,0 +1,14 @@
+Add condition in community and blog create in which link property cannot be a number
+Community and blog create - add check if link is available condition
+Community and blog create - if accesscontrolsettings throw error, dont save community/blog
+community and blog delete - need to define rules for that
+add 'already liked' parameter to comment and blogpost when getting responses
+community invite member
+community delete
+blog delete
+search alias for security group (exclude those who are already members from results)
+alias create see which image is the important one, update the endpoint and this Switch Aliases, CRUD functionality jira ticket
+add originblog/origincommunity property to comment and update authservice to correctly forbid access if user has no view access to origin,
+add security checks via AuthService on edit permissions for securitygroup edit, user edit, alias edit
+ptimization - get user alias ids at auth time and use it where required in permission checks
+set list of autofollowed tags
