@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "es2019",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitAny": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "strictNullChecks": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["node_modules/*"],
+            "@routes/*": ["src/routes/API/*"],
+            "@services/*": ["src/services/*"],
+            "@entities/*": ["src/Entity/*"],
+            "@controllers/*": ["src/Controller/*"]
+        }
+    },
+    "include": ["src/**/*", "test/**/*"]
+}
