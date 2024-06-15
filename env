@@ -1,0 +1,26 @@
+# Set to production when deploying to production
+NODE_ENV=development
+
+# Node.js server configuration
+SERVER_PORT=3000
+
+DB_URL=postgres://postgres:postgres@localhost:5432/fanexus
+
+JWT_KEY=superSecret
+
+GRAPH_DB_URL=bolt://localhost:7687
+GRAPH_DB_USER=neo4j
+GRAPH_DB_PASSWORD=password
+
+#Set this to whatever it is in the db you have
+NSFW_TAG_ID = 5
+DEFAUTL_FOLLOWED_BLOGS_ID = "2,3"
+DEFAULT_COMMUNITIES_ID = "1"
+DEFAULT_FOLLOWED_COMMUNITIES_ID = "13"
+
+AWSACCESSKEYID="Youonlyneedthisforemails"
+AWSSECRETACCESSKEY="Youonlyneedthisforemails/LfLzm"
+
+SITE_URL="beta.fanexus.net"
+
+REPORT_EMAIL_DESTINATION="youremailsoyoucantest@mail.com"

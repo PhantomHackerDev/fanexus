@@ -1,0 +1,103 @@
+PROD clone timings
+
+GET blogposts - get count
+Planning time: 326.592 ms
+Execution time: 494.395 ms
+Total runtime: 910.326 ms
+
+GET blogposts - content by score
+Planning time: 247.828 ms
+Execution time: 1739.916 ms
+Total runtime: 2,085.783 ms
+
+by id
+Planning Time: 252.781,
+Execution Time: 2272.431
+Total runtime: 2,639.216 ms
+
+
+
+
+    declare
+       score integer;
+       numLikes integer;
+       numComments integer;
+       numReblogs integer;
+       isDirectBlogFollow integer;
+       isDirectCommunityFollow integer;
+       hoursSinceCreation bigint;
+    begin
+    SELECT COUNT ("Reactions"."id") into numLikes FROM "Reactions" WHERE "Reactions"."type"=1 AND "Reactions"."BlogPostId"=blogPostId;
+    SELECT COUNT("Comments"."id") into numComments FROM "Comments" WHERE "Comments"."BlogPostId"=blogPostId;
+    SELECT COUNT ("Reblog"."id") into numReblogs FROM "BlogPosts" AS "Reblog" WHERE "Reblog"."reblogOfBlogPostId"=blogPostId;
+    SELECT COUNT ("Follows"."id") into isDirectBlogFollow FROM "Follows" WHERE "Follows"."AliasId"=aliasId AND "Follows"."followBlogId"=blogId AND "Follows"."followType" = 1;
+    SELECT COUNT ("Follows"."id") into isDirectCommunityFollow FROM "Follows" WHERE "Follows"."AliasId"=aliasId AND "Follows"."followCommunityId"=communityId AND "Follows"."followType" = 1;
+    SELECT (EXTRACT(EPOCH FROM (now()::timestamp with time zone - createdAt))/60/60) into hoursSinceCreation;
+       return ((12 + numLikes+numComments+numReblogs + (isDirectBlogFollow*100) + (isDirectCommunityFollow*50))*1000/(12 + hoursSinceCreation));
+    end;
+
+
+using findall instead of findandcountall in getblogposts reduces time from 3.2 sec to 2.6 sec
+
+
+LOCAL timings
+500-700ms
+
+
+
+prod clone clone timings id
+3.31
+333
+324
+329
+330
+retest after delete permissionsconditions
+339
+332
+330
+
+prod clone timings without permissionsConditionsForUser
+
+250
+244
+244
+246
+244
+
+
+after remove ...(blogPost.reblogOfBlogPost (BECAUSE IM RETARDED AND ITS IN FORMAT FUNCTION NOT ACTUAL PSQL QUERY)
+332
+319
+313
+320
+328
+317
+
+after remove commentAccessConditionsForAlias
+295
+290
+287
+284
+280
+
+after remove comments
+107
+102
+98
+100
+101
+
+
+after remove third depth comments
+236
+245
+239
+244
+246
+
+after remove second depth comments
+1662
+1783
+1670
+1678
+1679

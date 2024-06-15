@@ -1,0 +1,13 @@
+node_modules
+.env
+ecosystem.config.js
+.idea
+.idea/
+.idea/*
+
+# Vim temporary files
+*~
+*.sw[op]
+
+# Build files
+dist

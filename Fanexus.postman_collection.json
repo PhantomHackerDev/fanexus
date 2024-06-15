@@ -1,0 +1,4800 @@
+{
+	"info": {
+		"_postman_id": "981b4dfa-d219-43ba-ac45-93a2ea05c971",
+		"name": "Fanexus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "test db reset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/users/db/userDBreset",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users",
+								"db",
+								"userDBreset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"test@email2\",\n\t\"password\" :  \"test\",\n\t\"name\": \"aliasName\",\n\t\"ageCheck\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/users",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"dorian.sternvukotic@gmail.com\",\n\t\"password\" :  \"iamwhoringthisaccforthetimebeing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/users/login",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get current user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/users/me",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/users/me/logout",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/users/me/logoutall",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"logoutall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"test@email17\",\n\t\"password\" :  \"test\",\n\t\"newPassword\" : \"test2\",\n\t\"newPasswordAgain\": \"test2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/users/11",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create signup key",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin password change",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"declan.chester@fanexus.net\",\n\t\"password\" :  \"Phoenix89!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/users/adminPasswordReset",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users",
+								"adminPasswordReset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Banhammer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"declan.chester@fanexus.net\",\n\t\"password\" :  \"Phoenix89!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/users/adminPasswordReset",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"users",
+								"adminPasswordReset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NewsFeed",
+			"item": [
+				{
+					"name": "Get newsfeed",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server_ip}}/newsfeed/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"newsfeed",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BlogPost",
+			"item": [
+				{
+					"name": "Get blogpost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blogPost/32",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost",
+								"32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create blogpost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"content\": \"Lorem Ipsum is simply dummy text of the printing <br><img src = 'https://cdn2.iconfinder.com/data/icons/super-hero/154/batman-comics-hero-avatar-head-mask-512.png'> <br> and typesetting industry.<img src = 'https://i.pinimg.com/originals/2b/52/7d/2b527dfbe670cd5a746425eb30e2740d.jpg'><br> Lorem Ipsum\",\n\t\"tagDisplays\": [\n        {\n            \"id\":1,\n            \"displaySynonym\": \"somesynonym\"\n        },\n        {\n            \"id\":2,\n            \"displaySynonym\": \"somesynonymtag2\"\n        },\n        {\n            \"id\":3,\n            \"displaySynonym\": \"somesynonymtag3\"\n        }],\n\t\"blog\": 1,\n\t\"shareTo\": {\n\t\t\"blogs\": [],\n\t\t\"communities\": [1,2]\n\t},\n\t\"viewingPrivacyGroups\": [45,46],\n\t\"commentingPrivacyGroups\": [45,46],\n    \"hideFromSearchResults\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit blogpost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"content\": \"edited Lorem Ipsum is simply dummy text of the printing <br><img src = 'https://cdn2.iconfinder.com/data/icons/super-hero/154/batman-comics-hero-avatar-head-mask-512.png'> <br> and typesetting industry.<img src = 'https://i.pinimg.com/originals/2b/52/7d/2b527dfbe670cd5a746425eb30e2740d.jpg'><br> Lorem Ipsum\",\n    \"tagDisplays\": [\n        {\n            \"id\":1,\n            \"displaySynonym\": \"somesynonym\"\n        }],\n\t\"viewingPrivacyGroups\": [45,46],\n\t\"commentingPrivacyGroups\": [46],\n    \"hideFromSearchResults\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost/123",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost",
+								"123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete blogpost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like blogPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost/32/like",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost",
+								"32",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unlike blogPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost/1/unlike",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost",
+								"1",
+								"unlike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add tags to blogpost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\": 1,\n\t\"tags\": [1, 3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost/1/tags",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost",
+								"1",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove tags from blogpost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\": 1,\n\t\"tags\": [2, 3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost/1/tags",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost",
+								"1",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create blogpost reblog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"content\": \"Lorem Ipsum is simply dummy text of the printing <br><img src = 'https://cdn2.iconfinder.com/data/icons/super-hero/154/batman-comics-hero-avatar-head-mask-512.png'> <br> and typesetting industry.<img src = 'https://i.pinimg.com/originals/2b/52/7d/2b527dfbe670cd5a746425eb30e2740d.jpg'><br> Lorem Ipsum\",\n\t\"tags\": [1,2,3],\n\t\"blog\": 1,\n\t\"contentAccessControl\": {\n\t\t\"accessControlSetting\": \"full\",\n\t\t\"aliases\" : [1]\n\t},\n\t\"reblogOfBlogPost\": 29\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get eligible share to entities",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blogPost/sharing/getEligibleShareToEntitiesForAlias",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blogPost",
+								"sharing",
+								"getEligibleShareToEntitiesForAlias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Get comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/comment/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"blogPost\": 1,\n\t\"alias\" :  1,\n\t\"content\": \"Lorem Ipsum is simply dummy text of the printing <br><img src = 'https://cdn2.iconfinder.com/data/icons/super-hero/154/batman-comics-hero-avatar-head-mask-512.png'> <br> and typesetting industry.<img src = 'https://i.pinimg.com/originals/2b/52/7d/2b527dfbe670cd5a746425eb30e2740d.jpg'><br> Lorem Ipsum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/comment",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"content\": \"EditedLorem Ipsum is simply dummy text of the printing <br><img src = 'https://cdn2.iconfinder.com/data/icons/super-hero/154/batman-comics-hero-avatar-head-mask-512.png'> <br> and typesetting industry.<img src = 'https://i.pinimg.com/originals/2b/52/7d/2b527dfbe670cd5a746425eb30e2740d.jpg'><br> Lorem Ipsum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/comment/3",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"comment",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/comment/2/like",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"comment",
+								"2",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unlike comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/comment/2/unlike",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"comment",
+								"2",
+								"unlike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/comment/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create comment on comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"parentComment\": 2,\n\t\"alias\" :  1,\n\t\"content\": \"Lorem Ipsum is simply dummy text of the printing <br><img src = 'https://cdn2.iconfinder.com/data/icons/super-hero/154/batman-comics-hero-avatar-head-mask-512.png'> <br> and typesetting industry.<img src = 'https://i.pinimg.com/originals/2b/52/7d/2b527dfbe670cd5a746425eb30e2740d.jpg'><br> Lorem Ipsum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/comment",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"comment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "Get blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/Lawlbringer",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"Lawlbringer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(DEPRECATED)Create blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  2,\n\t\"name\" : \"The batcave daily\",\n\t\"link\": \"thebatcavenews2\",\n\t\"links\": [\n\t\t{\n\t\t\t\"link\": \"https://twitter.com/hashtag/batman\",\n\t\t\t\"text\": \"my twitter\"\n\t\t},\n\t\t{\n\t\t\t\"link\": \"https://twitter.com/hashtag/batman\",\n\t\t\t\"text\": \"my duplicate twitter\"\n\t\t}\n\t\t],\n\t\"description\": \"The latest and hottest takes on the current happenings of the Gotham city\",\n\t\"subscriptionApproval\": \"open\",\n\t\"contentAccessControl\": {\n\t\t\"accessControlSetting\": \"specificInclude\",\n\t\t\"aliases\" : [1]\n\t},\n\t\"commentsAccessControl\": {\n\t\t\"accessControlSetting\": \"subscribers\"\n\t},\n\t\"followsAccessControl\": {\n\t\t\"accessControlSetting\": \"specificExclude\",\n\t\t\"aliases\" : [2]\n\t},\n\t\"reactionsAccessControl\": {\n\t\t\"accessControlSetting\": \"full\"\n\t},\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/7a289193-bb36-4850-91ed-57f6cf9e961b\",\n\t\t\"alt\": \"batsuit\",\n\t\t\"identifier\": \"7a289193-bb36-4850-91ed-57f6cf9e961b\"\n\t},\n\t\"coverImage\": {\n\t\t\"name\": \"nanosuit\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/baf20610-931d-4738-a76b-38bc33cc7276\",\n\t\t\"identifier\": \"baf20610-931d-4738-a76b-38bc33cc7276\",\n\t\t\"alt\": \"awesomesuit\"\n\t},\n\t\"tags\": [1,2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blog",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"name\" : \"edited The batcave daily\",\n\t\"link\": \"editedthebatcavenews\",\n\t\"links\": [\n\t\t\t\"<script>document.getElementById(\\\"demo\\\").innerHTML = \\\"Hello JavaScript!\\\";</script>\",\n\t\t\t\"<a href='www.google.com'>my stuff</a>\"\n\t\t],\n\t\"contentAccessControl\": {\n\t\t\"accessControlSetting\": \"specificExclude\"\n\t},\n\t\"followsAccessControl\": {\n\t\t\"accessControlSetting\": \"specificExclude\"\n\t},\n\t\"commentsAccessControl\": {\n\t\t\"accessControlSetting\": \"specificExclude\"\n\t},\n\t\"reactionsAccessControl\": {\n\t\t\"accessControlSetting\": \"specificExclude\"\n\t},\n\t\"description\": \"edited The latest and hottest takes on the current happenings of the Gotham city<script>document.getElementById(\\\"demo\\\").innerHTML = \\\"Hello JavaScript!\\\";</script>\",\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/7a289193-bb36-4850-91ed-57f6cf9e961b\",\n\t\t\"alt\": \"batsuit\",\n\t\t\"identifier\": \"7a289193-bb36-4850-91ed-57f6cf9e961b\"\n\t},\n\t\"coverImage\": {\n\t\t\"name\": \"nanosuit\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/baf20610-931d-4738-a76b-38bc33cc7276\",\n\t\t\"identifier\": \"baf20610-931d-4738-a76b-38bc33cc7276\",\n\t\t\"alt\": \"awesomesuit\"\n\t},\n\t\"showMinors\":false,\n    \"hideFromSearchResults\": false,\n       \"tagDisplays\": [\n        {\n            \"id\":2,\n            \"displaySynonym\": \"somesynonym\"\n        },\n        {\n            \"id\":1,\n            \"displaySynonym\": \"1somesynonym\"\n        }]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blog/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  432\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blog/13",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add tags to blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tags\" : [1,2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blog/1/tags/add",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"1",
+								"tags",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove tags from blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tags\" : [1,2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/blog/1/tags/remove",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"1",
+								"tags",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blog followedBy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/Gotham_City/followedBy",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"Gotham_City",
+								"followedBy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blog followedBy count",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/3/followedBy/count",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"3",
+								"followedBy",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blog liked blogPosts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/Gotham_City/likes/blogPosts",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"Gotham_City",
+								"likes",
+								"blogPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blog liked comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/Gotham_City/likes/comments",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"Gotham_City",
+								"likes",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blog liked count",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/Gotham_City/likes/count",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"Gotham_City",
+								"likes",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blog followedBy Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/Gotham_City/followedBy",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"Gotham_City",
+								"followedBy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blog most liked posts tagged by DC",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/Gotham_City/tags/[\"DC\"]/liked",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"Gotham_City",
+								"tags",
+								"[\"DC\"]",
+								"liked"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get blog liked blogPosts tagged by DC ordered by most liked",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/blog/Gotham_City/likes/blogPosts/tags/[\"DC\"]/liked",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"blog",
+								"Gotham_City",
+								"likes",
+								"blogPosts",
+								"tags",
+								"[\"DC\"]",
+								"liked"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Community",
+			"item": [
+				{
+					"name": "Get community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/community/1/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"name\" : \"The batcave dljkljkaily\",\n\t\"link\": \"thebatCavenewljkljksCommudfs\",\n\t\"links\": [\n\t\t\t\"https://twitter.com/hashtag/batman\",\n\t\t\t\"https://twitter.com/hashtag/Joker\"\n\t\t],\n\t\"description\": \"The latest and hottest takes on the current happenings of the Gotham city\",\n\t\"rules\":[ \n\t\t{\n\t\t\t\"name\":\"respect the commissioner\",\n\t\t\t\"description\": \"All members must respect commissioner Gordon\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"Dont kill\",\n\t\t\t\"description\": \"We arent murderers here\"\n\t\t}\n\t\t],\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/f97a7415-8f91-47b6-bba4-8f8cda77a245\",\n\t\t\"alt\": \"batsuit\",\n\t\t\"identifier\": \"f97a7415-8f91-47b6-bba4-8f8cda77a245\"\n\t},\n\t\"coverImage\": {\n\t\t\"name\": \"nanosuit\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/851cfc5a-d18a-4541-91ba-3a34ca283234\",\n\t\t\"alt\": \"awesomesuit\",\n\t\t\"identifier\": \"851cfc5a-d18a-4541-91ba-3a34ca283234\"\n\t},\n\t\"subscriptionApproval\": \"open\",\n\t\"followsAccessControl\": {\n\t\t\"accessControlSetting\": \"full\"\n\t},\n\t\"contentAccessControl\": {\n\t\t\"accessControlSetting\": \"full\"\n\t},\n\t\"reactionsAccessControl\": {\n\t\t\"accessControlSetting\": \"full\"\n\t},\n\t\"commentsAccessControl\": {\n\t\t\"accessControlSetting\": \"full\"\n\t},\n\t\"membersAccessControl\": {\n\t\t\"accessControlSetting\": \"full\"\n\t},\n\t\"postingAccessControl\": {\n\t\t\"accessControlSetting\": \"members\"\n\t},\n\t\"tagDisplays\": [\n        {\n            \"id\":1,\n            \"displaySynonym\": \"somesynonym\"\n        },\n        {\n            \"id\":2,\n            \"displaySynonym\": \"somesynonymtag2\"\n        },\n        {\n            \"id\":3,\n            \"displaySynonym\": \"somesynonymtag3\"\n        }],\n\t\"moderators\": [1],\n\t\"members\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"name\" : \"editThe batcave daily2\",\n\t\"link\": \"editthebatCavenewosCfffsadsaommu\",\n\t\"links\": [\n\t\t\t\"edithttps://twitter.com/hashtag/batman<script>hehe</script>heheoutsidescript\",\n\t\t\t\"https://twitter.com/hashtag/Joker\"\n\t\t],\n\t\"description\": \"editThe latest and hottest takes on the current happenings of the Gotham city\",\n    \"showMinors\": false,\n    \"hideFromSearchResults\":false,\n\t\"rules\":[ \n\t\t{\n\t\t\t\"name\":\"edited respect the commissioner\",\n\t\t\t\"description\": \"edited All members must respect commissioner Gordon\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"edited Dont kill\",\n\t\t\t\"description\": \"edited We arent murderers here\"\n\t\t},\n\t\t{\n\t\t\t\"name\":\"Dont eat bats\",\n\t\t\t\"description\": \"we want no new corona round heare \"\n\t\t}\n\t\t],\n\t\"avatar\": {\n\t\t\"name\": \"editedbatman\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/f97a7415-8f91-47b6-bba4-8f8cda77a245\",\n\t\t\"alt\": \"batsuit\",\n\t\t\"identifier\": \"f97a7415-8f91-47b6-bba4-8f8cda77a245\"\n\t},\n\t\"coverImage\": {\n\t\t\"name\": \"editednanosuit\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/851cfc5a-d18a-4541-91ba-3a34ca283234\",\n\t\t\"alt\": \"awesomesuit\",\n\t\t\"identifier\": \"851cfc5a-d18a-4541-91ba-3a34ca283234\"\n\t},\n\t\"subscriptionApproval\": \"open\",\n\t\"followsAccessControl\": {\n\t\t\"accessControlSetting\": \"members\"\n\t},\n\t\"contentAccessControl\": {\n\t\t\"accessControlSetting\": \"members\"\n\t},\n\t\"reactionsAccessControl\": {\n\t\t\"accessControlSetting\": \"members\"\n\t},\n\t\"commentsAccessControl\": {\n\t\t\"accessControlSetting\": \"members\"\n\t},\n\t\"membersAccessControl\": {\n\t\t\"accessControlSetting\": \"members\"\n\t},\n\t\"postingAccessControl\": {\n\t\t\"accessControlSetting\": \"members\"\n\t},\n    \t\"tagDisplays\": [\n        {\n            \"id\":1,\n            \"displaySynonym\": \"somesynonym\"\n        },\n        {\n            \"id\":2,\n            \"displaySynonym\": \"somesynonymtag2\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/12",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  432\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/13",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invite member",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  2,\n\t\"invitedAliasId\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/invites",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"invites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get members",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/1?filterBy=bat",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"1"
+							],
+							"query": [
+								{
+									"key": "filterBy",
+									"value": "bat"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept membership request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"requestId\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/requests/accept",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"requests",
+								"accept"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject membership requests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"requestId\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/requests/reject",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"requests",
+								"reject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get membership requests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/requests/2",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"requests",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request to join community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/requests/create",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"requests",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get moderators",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server_ip}}/community/1/moderators/2?filterBy=bat",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"moderators",
+								"2"
+							],
+							"query": [
+								{
+									"key": "filterBy",
+									"value": "bat"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add moderators",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"moderators\" : [2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/moderators/add",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"moderators",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Tags to community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"tags\" : [3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/tags/add",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"tags",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Tags from community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"tags\" : [3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/tags/remove",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"tags",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove moderators",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  2,\n\t\"moderators\" : [2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/moderators/remove",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"moderators",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove member from community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" :  1,\n\t\"removeMemberId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/remove",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accept invitation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/invites/accept",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"invites",
+								"accept"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject invitation",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/members/invites/reject",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"members",
+								"invites",
+								"reject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get my communities",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/community/mycommunities/list",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"mycommunities",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Tags on community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tags\" : [\"Batman\", \"Joker\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/community/1/tags",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get community most liked posts blogposts tagged by DC",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/community/1/tags/[\"DC\"]/liked/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"community",
+								"1",
+								"tags",
+								"[\"DC\"]",
+								"liked",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alias",
+			"item": [
+				{
+					"name": "Find aliases by stringpart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":1,\n\t\"aliasPart\" :  \"chad\",\n\t\"context\": {\n\t\t\"context\":\"community\",\n\t\t\"id\":1\n\t\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/findLike",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"findLike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create alias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"Chad TC\",\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/377647d9-2c77-4538-a409-32415515bd8a\",\n\t\t\"alt\": \"batsuit\",\n\t\t\"identifier\": \"377647d9-2c77-4538-a409-32415515bd8a\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit alias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"Edited name\",\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/377647d9-2c77-4538-a409-32415515bd8a\",\n\t\t\"alt\": \"batsuit\",\n\t\t\"identifier\": \"377647d9-2c77-4538-a409-32415515bd8a\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/3",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get my aliases",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/my",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"my"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get alias",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/3",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get my blog as alias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\" : \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/my/blog",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"my",
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get alias 3 following",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/3/following",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"3",
+								"following"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get alias 2 followedBy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/2/followedBy",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"2",
+								"followedBy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set alias to be used",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/set/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"set",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get alias 3 blocking",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/3/following",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								"3",
+								"following"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Find tags by stringpart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/b",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find tags by stringpart followedBy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/b/followedBy",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"b",
+								"followedBy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find tags by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/id/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find tags by id followedBy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/id/1/followedBy",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"id",
+								"1",
+								"followedBy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"DCJoker\",\n    \"synonyms\": [\n        \"CDJoker\",\n        \"JokerCD\",\n        \"JokerDC\"\n    ],\n    \"parentTags\": [\n        \"DC\"\n    ],\n    \"childTags\": [\n        \"Joker\"\n    ],\n    \"description\": \"A DCJoker\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/DCJoker",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"DCJoker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create tag 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Bruce Wayne\",\n    \"synonyms\": [\n        \"Bruce\"\n    ],\n    \"parentTags\": [\n        \"Batman\"\n    ],\n    \"description\": \"A person\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/Bruce Wayne",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"Bruce Wayne"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update tag 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Bruce Wayne\",\n    \"synonyms\": [\n        \"Bruce\"\n    ],\n    \"parentTags\": [\n        \"Joker\"\n    ],\n    \"description\": \"A person 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/Bruce Wayne",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"Bruce Wayne"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find blogposts tagged by tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/[\"Batman\"]/blogPosts",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"[\"Batman\"]",
+								"blogPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find blogs tagged by tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/[\"Batman\"]/blogs",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"[\"Batman\"]",
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find communities tagged by tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/[\"Batman\"]/communities",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"[\"Batman\"]",
+								"communities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find blogposts tagged by tag ordered by likes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/[\"Batman\"]/blogPosts/liked",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"[\"Batman\"]",
+								"blogPosts",
+								"liked"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"aliasPart\" :  \"bat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/b",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/tag/18",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"tag",
+								"18"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AccessControl",
+			"item": [
+				{
+					"name": "Get accessControl",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/accessControl/49",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"49"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit accessControl old",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"accessControlSetting\": \"full\",\n\t\"name\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/accessControl/5",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add aliases to accessControlGroup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"aliases\": [1]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/accessControl/50/addAliases",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"50",
+								"addAliases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove aliases From accessControlGroup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"aliases\": [5]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/accessControl/46/removeAliases",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"46",
+								"removeAliases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create accessControl",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accessControlSetting\": 1,\r\n    \"name\": \"friendsoss\",\r\n    \"isDefault\": true,\r\n    \"belongsToAliasId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/accessControl/",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit accessControl",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"nocomment friends\",\n\t\"allowView\": true,\n\t\"allowPost\": true,\n\t\"allowComment\": false,\n\t\"allowReaction\": true,\n\t\"allowFollow\": true,\n\t\"allowMembership\": true,\n\t\"subgroups\": [2, 3],\n\t\"isSubgroupOf\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/accessControl/5",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete accessControl",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/accessControl/40",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add accessControlGroup to accessControlGroup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"addAccessControlIds\": [49]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/accessControl/46/addAccessControlGroup",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"46",
+								"addAccessControlGroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove accessControlGroup to accessControlGroup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"removeAccessControlIds\": [14,17]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/accessControl/15/removeAccessControlGroup",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"15",
+								"removeAccessControlGroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Privacy groups",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/accessControl/my",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"accessControl",
+								"my"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Follow",
+			"item": [
+				{
+					"name": "follow tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/follow/tag/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"follow",
+								"tag",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "block alias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/block/alias/7",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"block",
+								"alias",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "follow blog 1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/follow/blog/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"follow",
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Follow community",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/follow/community/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"follow",
+								"community",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/follow/tag/2",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"follow",
+								"tag",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "block tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/block/tag/2",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"block",
+								"tag",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unblock tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/block/tag/2",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"block",
+								"tag",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unfollow blog",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/follow/blog/1",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"follow",
+								"blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "follow alias Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"alias\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/follow/alias/2",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"follow",
+								"alias",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "Get notifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"Chad TC\",\n\t\"imageURL\" :  \"https://pbs.twimg.com/profile_images/1055155104276463618/8XMqsKpd_400x400.jpg\",\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Batman_%28DC_Rebirth_version%29.png/220px-Batman_%28DC_Rebirth_version%29.png\",\n\t\t\"alt\": \"batsuit\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/notifications",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get new notifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"Chad TC\",\n\t\"imageURL\" :  \"https://pbs.twimg.com/profile_images/1055155104276463618/8XMqsKpd_400x400.jpg\",\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Batman_%28DC_Rebirth_version%29.png/220px-Batman_%28DC_Rebirth_version%29.png\",\n\t\t\"alt\": \"batsuit\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/notifications/new",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"notifications",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get new notifications count",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"Chad TC\",\n\t\"imageURL\" :  \"https://pbs.twimg.com/profile_images/1055155104276463618/8XMqsKpd_400x400.jpg\",\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Batman_%28DC_Rebirth_version%29.png/220px-Batman_%28DC_Rebirth_version%29.png\",\n\t\t\"alt\": \"batsuit\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/notifications/new/count",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"notifications",
+								"new",
+								"count"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "Upload image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/djstern/Downloads/3rxl1h.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server_ip}}/image/upload",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"image",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Database",
+			"item": [
+				{
+					"name": "Load fixtures",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/DbFixtures/fixturesLoad",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"DbFixtures",
+								"fixturesLoad"
+							]
+						},
+						"description": "reset db and load fixtures\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Sandbox",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/DbFixtures/test",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"DbFixtures",
+								"test"
+							]
+						},
+						"description": "reset db and load fixtures\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Sandbox upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/djstern/Downloads/0d2dbed6cc2affe52d74c6d447f4239b.png"
+								},
+								{
+									"key": "filename",
+									"value": "blaa",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/DbFixtures/test/upload",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"DbFixtures",
+								"test",
+								"upload"
+							]
+						},
+						"description": "reset db and load fixtures\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Load initial prod fixtures",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_ip}}/DbFixtures/fixturesLoad",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"DbFixtures",
+								"fixturesLoad"
+							]
+						},
+						"description": "reset db and load fixtures\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TagWrangling",
+			"item": [
+				{
+					"name": "merge tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SignupKey",
+			"item": [
+				{
+					"name": "Create signup key",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\" : \"Chad TC\",\n\t\"avatar\": {\n\t\t\"name\": \"batman\",\n\t\t\"src\": \"http://media.fanexus.net/users/root/images/377647d9-2c77-4538-a409-32415515bd8a\",\n\t\t\"alt\": \"batsuit\",\n\t\t\"identifier\": \"377647d9-2c77-4538-a409-32415515bd8a\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/alias/",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"alias",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserReport",
+			"item": [
+				{
+					"name": "Create user report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"violationCategory\" : \"samecategory\",\n\t\"content\" :  \"zhey took my lolipop!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_ip}}/userReport",
+							"host": [
+								"{{server_ip}}"
+							],
+							"path": [
+								"userReport"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "{{server_ip}}/users/requestPasswordReset?email=declan.j.chester@gmail.com",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_ip}}/users/requestPasswordReset?email=declan.j.chester@gmail.com",
+					"host": [
+						"{{server_ip}}"
+					],
+					"path": [
+						"users",
+						"requestPasswordReset"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "declan.j.chester@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
