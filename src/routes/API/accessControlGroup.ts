@@ -67,7 +67,7 @@ export const getMyAccessControlGroups: AuthRouteHandler = (req, res) => {
         });
 };
 
-const deleteAccessControlGroup: AuthRouteHandler = (req, res) =>
+const deleteAccessControlGroup: AuthRouteHandler = (req, res) => {
     sequelize
         .transaction(transaction => {
             const accessControlId = req.params.accessControlId;
@@ -128,7 +128,7 @@ const deleteAccessControlGroup: AuthRouteHandler = (req, res) =>
                     "accessControl_delete_fail"
                 )
             );
-        });
+        })};
 
 export const getAccessControlGroup: AuthRouteHandler = (req, res) =>
     sequelize
