@@ -158,9 +158,6 @@ userRouter.post("/:userId(\\d+)", auth, (req: AuthRequest, res) => {
         .compare(req.body.password, user.password)
         .then(match => {
             if (match) {
-                // if (req.body.email) {
-                // user.email = req.body.email;
-                // }
                 if (req.body.newPassword) {
                     if (req.body.newPassword === req.body.newPasswordAgain)
                         user.password = req.body.newPassword;
